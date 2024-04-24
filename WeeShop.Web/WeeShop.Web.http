@@ -1,0 +1,6 @@
+@WeeShop.Web_HostAddress = http://localhost:5285
+
+GET {{WeeShop.Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
