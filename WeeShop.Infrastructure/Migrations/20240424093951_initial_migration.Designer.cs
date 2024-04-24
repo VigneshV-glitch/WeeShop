@@ -12,8 +12,8 @@ using WeeShop.Infrastructure.DbContexts;
 namespace WeeShop.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240408101639_ApplicationUser")]
-    partial class ApplicationUser
+    [Migration("20240424093951_initial_migration")]
+    partial class initial_migration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
