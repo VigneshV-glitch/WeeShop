@@ -28,7 +28,9 @@ namespace WeeShop.Web.Controllers
         [Route("Create")]
         public async Task<ActionResult<API_Response>> Create([FromBody]CreateCategoryDTO createCategoryDTO)
         {
-            //This if condition is validation for ModelState,the                                                                condition returns false, ! is changed the result                                                                  false into true then execute the BadRequest.
+            //This if condition is validation for ModelState,the
+            //condition returns false, ! is changed the result
+            //false into true then execute the BadRequest.
             try
             {
                 if (!ModelState.IsValid)
@@ -48,7 +50,9 @@ namespace WeeShop.Web.Controllers
                 _response.DisplayMessage = CommonMessage.CreateOperationFailed;
                 _response.AddError(CommonMessage.SystemError);
             }
-            // (Category) this is from Dbcontext which is defined                                                                as table name (category) this is from parameter of                                                                Category Model
+            // (Category) this is from Dbcontext which is defined
+            // as table name (category) this is from parameter of
+            // Category Model
             return Ok(_response);
         }
         [HttpGet]
@@ -74,7 +78,9 @@ namespace WeeShop.Web.Controllers
         [Route("GetbyID")]
         public async Task<ActionResult<API_Response>> GetbyID(int id)
         {
-            // x is assigned as Category Model then                                                                              Find the Id value of Category model                                                                               which is Equals to input id
+            // x is assigned as Category Model then
+            // Find the Id value of Category model
+            // which is Equals to input id
             try
             {
                 var Category_Table = await _IcategoryService.GetbyIdAsync(id);
