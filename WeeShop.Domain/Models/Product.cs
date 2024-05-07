@@ -25,6 +25,5 @@ namespace WeeShop.Domain.Models
         public string Specification { get; set; }
 
         public double Price { get; set; }
-
     }
 }

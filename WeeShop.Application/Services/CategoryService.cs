@@ -33,7 +33,7 @@ namespace WeeShop.Application.Services
             await _IcategoryRepository.DeleteAsync(category);
         }
 
-        public async Task<IEnumerable<CategoryDTO>> GetAllAsync() //Here the Task Returns the List Type, So the Return block                                                             must have List, Convert the whatever type into List. 
+        public async Task<IEnumerable<CategoryDTO>> GetAllAsync() //Here the Task Returns the List Type, So the Return block                                                                          must have List, Convert the whatever type into List. 
         {
             var FromDB = await _IcategoryRepository.GetAllAsync();
             return _Imapper.Map<List<CategoryDTO>>(FromDB); 

@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Humanizer;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using System.Net;
 using WeeShop.Application.ApplicationConstants;
 using WeeShop.Application.Common;
@@ -8,6 +10,7 @@ using WeeShop.Application.Services.Interface;
 using WeeShop.Domain.Contracts;
 using WeeShop.Domain.Models;
 using WeeShop.Infrastructure.DbContexts;
+using WeeShop.Infrastructure.Repositories;
 
 namespace WeeShop.Web.Controllers
 {
@@ -20,17 +23,19 @@ namespace WeeShop.Web.Controllers
 
         public CategoryController(ICategoryService categoryService)
         {
-            // This constructor is used for assign the parameter                                                                 (categoryrepository)value to ==> _IcategoryService
-            _IcategoryService = categoryService;
+            /*This constructor is used for assign the parameter
+           (categoryrepository)value to ==> _IcategoryService*/
+
+           _IcategoryService = categoryService;
             _response = new API_Response();
         }
         [HttpPost]
         [Route("Create")]
-        public async Task<ActionResult<API_Response>> Create([FromBody]CreateCategoryDTO createCategoryDTO)
+        public async Task<ActionResult<API_Response>> Create([FromBody] CreateCategoryDTO createCategoryDTO)
         {
-            //This if condition is validation for ModelState,the
-            //condition returns false, ! is changed the result
-            //false into true then execute the BadRequest.
+            /*This if condition is validation for ModelState, the
+            condition returns false, ! is changed the result
+            false into true then execute the BadRequest.*/
             try
             {
                 if (!ModelState.IsValid)
@@ -50,9 +55,9 @@ namespace WeeShop.Web.Controllers
                 _response.DisplayMessage = CommonMessage.CreateOperationFailed;
                 _response.AddError(CommonMessage.SystemError);
             }
-            // (Category) this is from Dbcontext which is defined
-            // as table name (category) this is from parameter of
-            // Category Model
+            /*(Category)this is from Dbcontext which is defined
+            as table name(category) this is from parameter of
+            Category Model*/
             return Ok(_response);
         }
         [HttpGet]
@@ -78,9 +83,9 @@ namespace WeeShop.Web.Controllers
         [Route("GetbyID")]
         public async Task<ActionResult<API_Response>> GetbyID(int id)
         {
-            // x is assigned as Category Model then
-            // Find the Id value of Category model
-            // which is Equals to input id
+            /*x is assigned as Category Model then
+             Find the Id value of Category model
+             which is Equals to input id*/
             try
             {
                 var Category_Table = await _IcategoryService.GetbyIdAsync(id);
