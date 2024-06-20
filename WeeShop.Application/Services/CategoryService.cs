@@ -22,7 +22,7 @@ namespace WeeShop.Application.Services
         }
         public async Task<CategoryDTO> CreateAsync(CreateCategoryDTO createCategoryDTO)
         {
-            var FromDTO = _Imapper.Map<Category>(createCategoryDTO); //createCategoryDTO is a Source, Category is a Destination
+            var FromDTO = _Imapper.Map<Category>(createCategoryDTO); // Category is a Destination,createCategoryDTO is a Source
             var CreatedEntity = await _IcategoryRepository.CreateAsync(FromDTO);
             return _Imapper.Map<CategoryDTO>(CreatedEntity);
         }
