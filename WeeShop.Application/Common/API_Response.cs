@@ -18,13 +18,13 @@ namespace WeeShop.Application.Common
 
         public void AddError(string errormessage)
         {
-            API_Error error = new API_Error(description: errormessage);
+            API_Error error = new API_Error (description: errormessage);
             Errors.Add(error);
         }
 
         public void AddWarning(string warningmessage)
         {
-            API_Warning warning = new(description: warningmessage);
+            API_Warning warning = new API_Warning (description: warningmessage);
             Warnings.Add(warning);
         }
     }
