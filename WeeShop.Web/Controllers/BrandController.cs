@@ -23,7 +23,7 @@ namespace WeeShop.Web.Controllers
 
         [HttpPost]
         [Route("Create")]
-        public async Task<ActionResult<API_Response>> Create(CreateBrandDTO createBrandDTO)
+        public async Task<ActionResult<API_Response>> Create (CreateBrandDTO createBrandDTO)
         {
             try
             {
