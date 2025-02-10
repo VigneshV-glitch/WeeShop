@@ -16,7 +16,8 @@ namespace WeeShop.Domain.Contracts
 
     /*Common and Repeated Functions are Initialized               
     which are all going to do some DB Operations */  
-    public interface IGenericRepository<T> where T : BaseModel  /*where T : BaseModel: This is a generic type constraint. It                                                                          restricts the type T to be or derive from BaseModel. In other                                                                        words, any class that implements this interface must use a                                                                           type T that is either the BaseModel itself or a subclass (or                                                                         derived class) of BaseModel.*/   
+    public interface IGenericRepository<T> where T : BaseModel  /*where T : BaseModel: This is a generic type constraint. 
+                                                                 * It restricts the type T to be or derive from BaseModel. In other                                                                             words, any class that implements this interface must use a                                                                                    type T that is either the BaseModel itself or a subclass (or                                                                                  derived class) of BaseModel.*/   
     {
         Task<T> CreateAsync(T Entity);
 
